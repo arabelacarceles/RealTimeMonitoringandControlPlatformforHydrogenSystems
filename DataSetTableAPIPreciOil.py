@@ -1,7 +1,7 @@
 import os
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.datafactory import DataFactoryManagementClient
-from azure.mgmt.datafactory.models import DatasetResource, RestResourceDataset, LinkedServiceReference
+from azure.mgmt.datafactory.models import DatasetResource, AzureTableDataset
 
 # Autenticación para Azure, cogemos la id de la suscripcion de una variable de entorno que ha sido
 #previamente creada
@@ -14,29 +14,32 @@ if not subscription_id:
 credential = DefaultAzureCredential()
 adf_client = DataFactoryManagementClient(credential, subscription_id)
 
-# Datos de configuración
-resource_group_name = 'TFGInformatica'
+
+
+resource_group = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
-linked_service_name = 'ServicioRestAPIPrecioil'
+linked_service_name = 'ServicioTablaAlmacenamiento'  # Actualiza esto con el nombre de tu Linked Service
+table_name = 'datos'
+
+# Crear un Azure Table Storage dataset
+azure_table_dataset = AzureTableDataset(
+    linked_service_name={
+        "referenceName": linked_service_name,
+        "type": "LinkedServiceReference"
+    },
+    table_name=table_name  # El nombre de tu tabla en Azure Table Storage
+)
 
 localidades = ['Murcia','Madrid']
 
 for i in localidades:
-    # URL relativa (puedes cambiar esto según sea necesario)
-    relative_url = i
 
-    # Crear el dataset para el servicio REST
-    rest_dataset_name = 'DataSetRest'+i
-    rest_dataset = RestResourceDataset(
-        linked_service_name=LinkedServiceReference(reference_name=linked_service_name, type='LinkedServiceReference'),
-        relative_url=relative_url
-    )
-
+    dataset_name = 'DataSetTable'+i
     adf_client.datasets.create_or_update(
-        resource_group_name=resource_group_name,
+        resource_group_name=resource_group,
         factory_name=data_factory_name,
-        dataset_name=rest_dataset_name,
-        dataset=DatasetResource(properties=rest_dataset)
+        dataset_name=dataset_name,
+        dataset=DatasetResource(properties=azure_table_dataset)
     )
 
-    print(f"Dataset REST '{rest_dataset_name}' creado.")
+    print(f"Dataset para Azure Table Storage {dataset_name} creado.")

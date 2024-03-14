@@ -3,21 +3,22 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.storage.models import StorageAccountCreateParameters
 
-# Configuración de la cuenta de almacenamiento
+# Autenticación para Azure, cogemos la id de la suscripcion de una variable de entorno que ha sido
+#previamente creada
 subscription_id = os.getenv('ID_AZURE_SUSCRIPTION')
-resource_group = 'TFGInformatica'
-storage_account_name = 'datoscombustibles'  
-location = 'West Europe'
-
 #Comprobamos que exista una variable de entorno con el id de la suscripcion
 if not subscription_id:
     raise ValueError("Por favor, establece la variable de entorno ID_AZURE_SUSCRIPTION antes de ejecutar este script.")
 
-
-# Autenticación para Azure, cogemos la id de la suscripcion de una variable de entorno que ha sido
-#previamente creada
+# Punto de entrada para realizar operaciones
 credential = DefaultAzureCredential()
 storage_client = StorageManagementClient(credential, subscription_id)
+
+# Configuración de la cuenta de almacenamiento
+resource_group = 'TFGInformatica'
+storage_account_name = 'datoscombustibles'  
+location = 'West Europe'
+
 
 # Parámetros de la cuenta de almacenamiento
 parameters = StorageAccountCreateParameters(

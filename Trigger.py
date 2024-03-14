@@ -1,7 +1,7 @@
 import os
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.datafactory import DataFactoryManagementClient
-from azure.mgmt.datafactory.models import ScheduleTrigger, ScheduleTriggerRecurrence, TriggerResource
+from azure.mgmt.datafactory.models import ScheduleTrigger, ScheduleTriggerRecurrence, TriggerResource, TriggerPipelineReference, PipelineReference
 
 
 
@@ -22,23 +22,32 @@ data_factory_name = 'fabricadedatostfg'
 trigger_name = 'Trigger'
 pipeline_name = 'Pipeline'
 
+pipeline_reference = TriggerPipelineReference(
+    pipeline_reference=PipelineReference(reference_name=pipeline_name, type="PipelineReference"),
+    parameters={}
+)
 
 recurrence = ScheduleTriggerRecurrence(
-    frequency='Minute',  # Puede ser Minute, Hour, Day, Week, Month
-    interval=1,  # Ejecutar una vez al día
+    frequency='Hour',  # Puede ser Minute, Hour, Day, Week, Month
+    interval=12,  # Ejecutar una vez al día
     start_time='2022-01-01T17:00:00Z',  # Hora de inicio en formato UTC
     time_zone='UTC'
 )
 
 trigger = ScheduleTrigger(
-    recurrence=recurrence
+    recurrence=recurrence,
+    pipelines=[pipeline_reference]
 )
 
 trigger_resource = TriggerResource(
-    properties=trigger,
-    description='Trigger que ejecuta el pipeline diariamente a las 5:00 PM UTC'
+    properties=trigger
 )
 
 # Crear o actualizar el trigger en Data Factory
 adf_client.triggers.create_or_update(resource_group, data_factory_name, trigger_name, trigger_resource)
+
+response = adf_client.triggers.begin_start(resource_group, data_factory_name, trigger_name)
+response.result()  # Espera a que la operación de inicio finalice
+
+print(f"El trigger '{trigger_name}' ha sido activado.")
 

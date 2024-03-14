@@ -35,8 +35,8 @@ for i in localidades:
         name='ActividadDeCopia'+i,
         inputs=[DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')],
         outputs=[DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference')],
-        source=(DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')),  # Usamos un CopySource genérico
-        sink=(DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference')),  # Usamos un CopySink genérico
+        source=CopySource(DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')),  # Usamos un CopySource genérico
+        sink=CopySink(DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference'),write_behavior='overwrite'),  # Usamos un CopySink genérico
         translator=TabularTranslator()
         # Aquí puedes agregar opciones de configuración adicionales para la actividad de copia.
     )

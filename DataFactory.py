@@ -20,15 +20,13 @@ adf_client = DataFactoryManagementClient(credential, subscription_id)
 resource_group = 'TFGInformatica'
 location = 'West Europe'
 
-
-
 #Nos aseguramos que el grupo de recursos al que va a estar asociado la fabrica este configurado
 #correctamente y de acuerdo a la configuracion que se va a hacer de la fabrica
 rg_params = {'location': location}
 resource_client.resource_groups.create_or_update(resource_group, rg_params)
 
 
-# Creaacion de la fabrica de datos
+# Creacion de la fabrica de datos
 data_factory_name = 'fabricadedatostfg'
 df_resource = Factory(location=location)
 data_factory = adf_client.factories.create_or_update(resource_group, data_factory_name, df_resource)

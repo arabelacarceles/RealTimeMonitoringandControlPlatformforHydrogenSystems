@@ -21,8 +21,6 @@ if not subscription_id:
 credential = DefaultAzureCredential()
 adf_client = DataFactoryManagementClient(credential, subscription_id)
 
-
-
 resource_group = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
 
@@ -51,7 +49,7 @@ pipeline = PipelineResource(
     activities=actividades_copia,
 )
 
-pipeline_name = 'PipelineRESTaTableStorage'
+pipeline_name = 'Pipeline'
 adf_client.pipelines.create_or_update(
     resource_group_name=resource_group,
     factory_name=data_factory_name,

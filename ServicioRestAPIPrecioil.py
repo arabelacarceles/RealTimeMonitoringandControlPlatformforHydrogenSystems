@@ -17,7 +17,7 @@ adf_client = DataFactoryManagementClient(credential, subscription_id)
 #Configuracion del servicio rest
 resource_group = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
-rest_service_url = 'https://api.precioil.es/'
+rest_service_url = 'https://api.precioil.es/estaciones/conPrecios/localidad/'
 
 
 #Creacion del servicio rest

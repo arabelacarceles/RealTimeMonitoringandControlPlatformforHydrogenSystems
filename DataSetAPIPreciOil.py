@@ -29,7 +29,8 @@ for i in localidades:
     rest_dataset_name = 'DataSetRest'+i
     rest_dataset = RestResourceDataset(
         linked_service_name=LinkedServiceReference(reference_name=linked_service_name, type='LinkedServiceReference'),
-        relative_url=relative_url
+        relative_url=relative_url,
+        request_method="GET"
     )
 
     adf_client.datasets.create_or_update(

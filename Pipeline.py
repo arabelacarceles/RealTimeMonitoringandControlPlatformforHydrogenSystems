@@ -25,7 +25,9 @@ resource_group = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
 
 actividades_copia=[]
-localidades=['Madrid','Murcia']
+localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Ceuta', 'Melilla']
 for i in localidades:
     rest_dataset_name = 'DataSetRest'+i  # Nombre del dataset REST
     table_storage_dataset_name = 'DataSetTable'+i  # Nombre del dataset de Table Storage
@@ -35,8 +37,8 @@ for i in localidades:
         name='ActividadDeCopia'+i,
         inputs=[DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')],
         outputs=[DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference')],
-        source=CopySource(DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')),  # Usamos un CopySource genérico
-        sink=CopySink(DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference'),write_behavior='overwrite'),  # Usamos un CopySink genérico
+        source=(DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')),  # Usamos un CopySource genérico
+        sink=(DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference')),  # Usamos un CopySink genérico
         translator=TabularTranslator()
         # Aquí puedes agregar opciones de configuración adicionales para la actividad de copia.
     )

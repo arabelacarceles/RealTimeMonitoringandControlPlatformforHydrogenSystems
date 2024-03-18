@@ -19,18 +19,25 @@ resource_group_name = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
 linked_service_name = 'ServicioRestAPIPrecioil'
 
-localidades = ['Murcia','Madrid']
+localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Ceuta', 'Melilla']
 
 for i in localidades:
-    # URL relativa (puedes cambiar esto según sea necesario)
-    relative_url = i
-
+        # URL relativa (puedes cambiar esto según sea necesario)
+    if i == 'SantaCruzdeTenerife':
+        relative_url='Santa Cruz de Tenerife'
+    elif i == 'SantiagodeCompostela':
+        relative_url='Santiago de Compostela'
+    elif i == 'Logronio':
+        relative_url='Logroño'
+    else:       
+        relative_url = i
     # Crear el dataset para el servicio REST
     rest_dataset_name = 'DataSetRest'+i
     rest_dataset = RestResourceDataset(
         linked_service_name=LinkedServiceReference(reference_name=linked_service_name, type='LinkedServiceReference'),
         relative_url=relative_url,
-        request_method="GET"
     )
 
     adf_client.datasets.create_or_update(

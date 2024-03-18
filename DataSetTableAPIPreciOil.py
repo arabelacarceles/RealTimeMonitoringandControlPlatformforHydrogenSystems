@@ -20,10 +20,12 @@ resource_group = 'TFGInformatica'
 data_factory_name = 'fabricadedatostfg'
 linked_service_name = 'ServicioTablaAlmacenamiento'  # Actualiza esto con el nombre de tu Linked Service
 
-localidades = ['Murcia','Madrid']
+localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Ceuta', 'Melilla']
 
 for i in localidades:
-    table_name = 'datos'+i
+    table_name = 'datosde'+i
 
     # Crear un Azure Table Storage dataset
     azure_table_dataset = AzureTableDataset(

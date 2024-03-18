@@ -12,13 +12,15 @@ if not account_key:
 connection_string = f"DefaultEndpointsProtocol=https;AccountName={account_name};AccountKey={account_key};EndpointSuffix=core.windows.net"
 table_service = TableServiceClient.from_connection_string(conn_str=connection_string)
 
-localidades = ['Madrid','Murcia']
+localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Ceuta', 'Melilla']
 for i in localidades:
+    
     #Configuracion de la tabla
-    table_name = "datos"+i
+    table_name = "datosde"+i
     # Creación de la tabla
     table_client = table_service.create_table_if_not_exists(table_name=table_name)
-
     #Print para asegurarnos que se ha creado la tabla
     print(f"Tabla '{table_name}' creada.")
 

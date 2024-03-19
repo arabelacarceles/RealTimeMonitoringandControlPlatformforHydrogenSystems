@@ -20,7 +20,7 @@ data_factory_name = 'fabricadedatostfg'
 linked_service_name = 'ServicioRestAPIPrecioil'
 
 localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
-               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Valencia', 'Bilbao',
                'Ceuta', 'Melilla']
 
 for i in localidades:

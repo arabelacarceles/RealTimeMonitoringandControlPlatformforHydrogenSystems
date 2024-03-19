@@ -13,7 +13,7 @@ connection_string = f"DefaultEndpointsProtocol=https;AccountName={account_name};
 table_service = TableServiceClient.from_connection_string(conn_str=connection_string)
 
 localidades = ['Murcia','Madrid','Sevilla','Zaragoza','Oviedo','Palma','SantaCruzdeTenerife', 'Toledo', 'Santander',
-               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Pamplona', 'Valencia', 'Vitoria',
+               'Valladolid', 'Barcelona', 'Merida', 'SantiagodeCompostela', 'Logronio', 'Valencia', 'Bilbao',
                'Ceuta', 'Melilla']
 for i in localidades:
     

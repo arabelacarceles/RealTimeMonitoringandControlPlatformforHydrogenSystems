@@ -29,9 +29,9 @@ pipeline_reference = TriggerPipelineReference(
 
 recurrence = ScheduleTriggerRecurrence(
     frequency='Hour',  # Puede ser Minute, Hour, Day, Week, Month
-    interval=12,  # Ejecutar una vez al día
-    start_time='2022-01-01T17:00:00Z',  # Hora de inicio en formato UTC
-    time_zone='UTC'
+    interval=24,  # Ejecutar una vez al día
+    start_time='2024-03-01T08:00:00Z',  # Hora de inicio en formato UTC
+    time_zone='Romance Standard Time'
 )
 
 trigger = ScheduleTrigger(

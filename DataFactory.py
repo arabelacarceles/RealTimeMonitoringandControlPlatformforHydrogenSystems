@@ -1,4 +1,4 @@
-import os
+import os #para poder obtener la variable de entorno
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.datafactory import DataFactoryManagementClient

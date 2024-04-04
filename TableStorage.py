@@ -1,4 +1,4 @@
-import os
+import os #para poder obtener la variable de entorno
 from azure.data.tables import TableServiceClient
 
 #Autenticacion de la cuenta de almacenamiento que queremos usar

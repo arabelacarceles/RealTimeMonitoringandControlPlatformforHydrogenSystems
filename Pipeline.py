@@ -40,7 +40,6 @@ for i in localidades:
         source=(DatasetReference(reference_name=rest_dataset_name,type='DatasetReference')),  # Usamos un CopySource genérico
         sink=(DatasetReference(reference_name=table_storage_dataset_name,type='DatasetReference')),  # Usamos un CopySink genérico
         translator=TabularTranslator()
-        # Aquí puedes agregar opciones de configuración adicionales para la actividad de copia.
     )
     
     actividades_copia.append(copy_activity)

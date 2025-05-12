@@ -1,68 +1,114 @@
-# Real-Time Monitoring and Control Platform for Hydrogen Systems
+# 🔋 Real-Time Monitoring Platform for Hydrogen Systems
 
-This repository contains the source code and documentation for my Bachelor's Thesis project, titled **"Development of a Real-Time Monitoring and Control Platform for Hydrogen Storage and Distribution Systems in Enterprises."** 
-The project was developed at the Universidad Politécnica de Madrid and aims to provide a dynamic and scalable tool to monitor and analyze costs related to the use of hydrogen in business contexts.
+A dynamic and scalable solution for monitoring and analyzing **hydrogen storage and distribution costs** in enterprise environments.  
+🎓 Developed as part of my Bachelor's Thesis at the **Universidad Politécnica de Madrid**.
 
-## Features
-- **Dynamic Data Monitoring**: Real-time tracking of fuel prices and hydrogen production costs in major Spanish cities.
-- **Scalability**: Designed to adapt to future expansions as the hydrogen market matures.
-- **Data Visualization**: Integration with Power BI for clear and interactive visual dashboards.
-- **Automated Updates**: Daily data extraction and report updates using Azure services.
+🔗 **Live Dashboard**: https://short.upm.es/ndgmd
 
-## Technologies Used
-- **Microsoft Azure**: Cloud-based data storage and processing using services such as:
-  - Azure Data Factory for ETL pipelines.
-  - Azure Table Storage for efficient and scalable NoSQL data storage.
-  - REST API services for data extraction.
-- **Power BI**: For data modeling, analysis, and visualization.
-- **Python**: Development of custom scripts for data extraction and processing using libraries from the Azure SDK.
-- **Power Query and DAX**: Used within Power BI for advanced data transformation and calculations.
+---
 
-## Repository Structure
-- `src/`: Contains Python scripts for setting up Azure services and pipelines.
-- `data/`: Datasets used in the project.
-- `docs/`: Project documentation.
+## 📌 Project Overview
 
-## Installation and Setup
+This project focuses on **real-time cost tracking** and **data visualization** related to hydrogen fuel usage in major Spanish cities. 
+
+---
+
+## 🧰 Tech Stack
+
+| Tool                     | Role                                                              |
+|--------------------------|-------------------------------------------------------------------|
+| **Microsoft Azure**      | Cloud platform for ETL, storage and task automation               |
+| **Azure Data Factory**   | Building ETL pipelines to ingest and transform fuel data          |
+| **Azure Table Storage**  | NoSQL storage for structured hydrogen data                        |
+| **REST APIs**            | Extraction of fuel prices and market rates                        |
+| **Power BI**             | Data modeling and interactive dashboards                          |
+| **Python**               | Scripted data ingestion with Azure SDKs                           |
+| **Power Query**, **DAX** | In-tool transformation and advanced KPI calculations              |
+
+---
+
+## 📁 Project Structure
+
+```
+├── src/ # Python scripts for Azure pipeline automation
+├── data/ # Example datasets and synthetic test data
+├── docs/ # Official thesis document and architectural diagrams
+├── dashboard.pbit # Power BI dashboard file
+├── requirements.txt # Python dependencies
+```
+
+---
+## 🧪 Features
+
+### ✅ Real-Time Data Monitoring
+- Tracks hydrogen production and fuel prices across key cities in Spain.
+- Integrates REST APIs with Azure triggers for automated daily refreshes.
+
+### 📊 Data Visualization
+- Power BI dashboards with custom visuals and KPI tracking.
+- Filtering by city, fuel type, and date range.
+
+### ⚙️ Cloud Automation
+- ETL pipelines managed via Azure Data Factory.
+- Data stored and accessed efficiently through Azure Table Storage.
+
+---
+
+## 🔐 Limitations & Status
+
+- **Azure Access**: The data pipeline currently does not run live due to the expiration of the educational license used during development.
+- **Deployment**: To activate live updates, a valid Azure subscription and new credentials are required.
+
+---
+
+## 💾 How to Run Locally
+
 ### Prerequisites
-- An active Microsoft Azure account (see note below regarding license).
-- Python 3.x installed on your local machine.
-- Power BI Desktop installed for data visualization.
+- Python 3.x installed on your local machine
+- Power BI Desktop for data visualization
+- An active Microsoft Azure account  
+  *(Note: Educational license used during development is now expired)*
 
 ### Steps
-All steps for configuring and running the project are detailed in the Bachelor's Thesis document located in the `docs/` folder.
 
-## Important Note
-- The development and documentation of this project were carried out in Spanish.
-The data collection service is currently **interrupted** due to the expiration of the Azure educational license used during development.
-  To enable the full functionality of the project, you will need a valid Microsoft Azure subscription to manage and automate the data workflows.
+All setup and configuration steps are explained in the thesis document located in the `docs/` folder.
 
-## Usage
-- **Data Update**: Data is automatically extracted and updated daily using Azure triggers (requires an active Azure subscription).
-- **Interactive Dashboards**: Navigate through the Power BI interface to explore fuel and hydrogen cost trends.
+---
+
+## 🧪 Usage
+
+- **Automated Updates**: The system was designed to extract and update data daily using Azure triggers.
+- **Interactive Dashboards**: Use Power BI Desktop to explore trends in fuel prices and hydrogen distribution across Spanish cities.
+
+---
 
 ## Future Improvements
-- **Data Coverage Expansion**: Add support for more cities and regions as new data sources become available.
-- **Enhanced Analysis**: Integrate predictive analytics to anticipate fuel price trends.
-- **Dynamic Hydrogen Data**: Automate hydrogen-related data collection as market maturity progresses.
 
-## Authors
-- **Arabela Cárceles Carrillo**  
-  Bachelor in Computer Science, Universidad Politécnica de Madrid  
-  [LinkedIn Profile](https://www.linkedin.com/in/arabela-carceles-carrillo/)
+- **Geographic Expansion**: Incorporate more regions and international data sources as available.
+- **Predictive Modeling**: Add forecasting capabilities for fuel and hydrogen prices.
+- **Live Hydrogen Feeds**: Automate hydrogen-related datasets when available through external APIs.
 
-## Acknowledgments
-- Supervisors: Jorge Pablo Díaz Velilla, Sergio José Ríos Aguilar
-- Universidad Politécnica de Madrid
+---
 
-## License
-This project was developed as part of a Bachelor's Thesis at the Universidad Politécnica de Madrid (UPM). 
-  While the content of this repository is publicly available for educational purposes, ownership of the project and its associated intellectual property is retained by the UPM as per institutional agreements signed by the author.
+## 📄 License
 
-### Usage
-- Any reuse or redistribution of this project must acknowledge the UPM and the author.
-- Please contact the UPM or the author for permissions regarding commercial use or adaptations.
+This project was developed as part of a Bachelor's Thesis at the Universidad Politécnica de Madrid (UPM).  
+It is publicly available for educational purposes only.  
 
-## Links
-- [Project Repository](https://github.com/arabelacarceles/TFGInformatica)
-- [Platform Access](https://short.upm.es/ndgmd)
+All intellectual property rights are retained by the UPM and the author, as per institutional agreements.  
+Any reuse or redistribution of this project must acknowledge the UPM and the author.  
+Please contact them for permission regarding commercial use or adaptations.
+
+---
+
+## ✍️ Author
+
+**Arabela Cárceles Carrillo**
+  
+---
+
+## 🙏 Acknowledgments
+
+- **Supervisors**: Jorge Pablo Díaz Velilla, Sergio José Ríos Aguilar  
+- **Institution**: Universidad Politécnica de Madrid
+
